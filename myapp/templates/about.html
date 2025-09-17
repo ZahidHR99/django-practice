@@ -67,6 +67,19 @@
         <h1>{{  mylist|slice:"::2" }}</h1>
         <h1>{{  mylist|slice:"-3:" }}</h1>
 
+        <hr/>
+
+        <p>{{ is_resilient }}</p>
+        <p>{{ is_resilient|yesno:"Yes,No,Maybe" }}</p>
+        <p>{{ is_confident|yesno:"Yes,No" }}</p>
+        <p>{{ is_humble|yesno:"Yes,No" }}</p>
+        <p>{{ is_humble|yesno:"Absolutely,Not at all" }}</p>
+        <p>{{ is_humble|yesno:"Absolutely,Not at all,Maybe" }}</p>
+        
+        <hr/>
+
+        <h6>{{ projects }}</h6>
+        <h6>{{ projects | dictsort:'name' }}</h6>
 
         <script src="" async defer></script>
     </body>

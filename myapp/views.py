@@ -107,7 +107,7 @@ def about(request):
         'is_methodical': True,
         'is_dedicated': True,
         'is_persistent': True,
-        'is_resilient': True,
+        'is_resilient': False,
         'is_confident': True,
         'is_humble': True,
         'mydate': datetime.now(),
