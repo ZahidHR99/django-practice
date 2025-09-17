@@ -3,7 +3,26 @@ from django.shortcuts import render
 from datetime import datetime, timedelta
 
 def home(request):
-    return render(request, 'home.html')
+    data = {
+        'title': 'Home Page',
+        'content': 'Welcome to the Home Page',
+        'projects': [
+            {'name': 'Project A', 'price': 29.99},
+            {'name': 'Project B', 'price': 49.99},
+            {'name': 'Project C', 'price': 19.99},
+            {'name': 'Project D', 'price': 39.99},
+            {'name': 'Project E', 'price': 59.99},
+            {'name': 'Project F', 'price': 24.99},
+            {'name': 'Project G', 'price': 44.99},
+            {'name': 'Project H', 'price': 14.99},
+            {'name': 'Project I', 'price': 34.99},
+            {'name': 'Project J', 'price': 54.99},
+            {'name': 'Project K', 'price': 29.99},
+            {'name': 'Project L', 'price': 49.99},
+        ],
+        'hobbies': ['Reading', 'Traveling', 'Coding'],
+    }
+    return render(request, 'home.html', data)
 
 def about(request):
 
