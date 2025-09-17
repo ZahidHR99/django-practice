@@ -1,65 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+{% extends "base.html" %}
 
-        <h1>Contact Page</h1>
+{% block title %} 
+    Contact
+{% endblock %}
 
-        <h4>Conditional Rendering</h4>
+{% block content %}
 
-        {% if user.is_authenticated %}
+    <h1>This is Contact Page</h1>
 
-            <p>Welcome, {{ user.username }}. You are logged in.</p>
-
-        {% else %}
-
-            <p>You are not logged in.</p>
-            
-        {% endif %}
-
-
-        <h4>Looping</h4>
-
-        <ul>
-            {% for item in products %}
-
-                <li>{{ item.name }} - ${{ item.price }}</li>
-
-            {% endfor %}
-        </ul>
-         
-
-        <h1>Condition Example</h1>
-
-        {% if lucky_number == 13 %}
-
-            <p>Your lucky number is 13!</p>
-
-        {% elif pi_value > 3 %}
-
-            <p>Pi is greater than 3!</p>
-
-        {% elif e_value < 3 %}
-
-            <p>e is less than 3!</p>
-
-        {% else %}
-
-            <p>The golden ratio is {{ golden_ratio }}</p>
-
-        {% endif %}
-
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+{% endblock %}

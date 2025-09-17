@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+
+
+        <p>{{ title }}</p>
+
+        <p>{{ title|capfirst }}</p>
+        <p>{{ title|upper }}</p>
+        <p>{{ title|lower }}</p>
+        <p>{{ title|wordcount }}</p>
+        <p>{{ title|title }}</p>
+        <p>{{ content|cut:'Welcome' }}</p>
+        <p>{{ content|truncatewords:4 }}</p>
+        <p>{{ content|truncatechars:4 }}</p>
+
+        <hr/>
+
+        <p>{{ number|floatformat:2 }}</p>
+        <p>{{ number|floatformat:4 }}</p>
+        <p>{{ number|add:100  }}</p>
+        <p>{{ number|divisibleby:3 }}</p>
+        <p>{{ number|divisibleby:4 }}</p>
+        
+        <hr/>
+
+        <p>{{ mydate|date:"D d M Y" }}</p>
+        <p>{{ mydate|date:"Y-m-d H:i:s" }}</p>
+
+        <hr/>
+
+        <ul>
+            {% for item in list_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr/>
+       
+        <p>{{ html_content|safe }}</p>
+
+        <hr/>
+
+        <h1>{{  mylist }}
+        <h1>{{  mylist|length }}</h1>
+        <h1>{{  mylist|join:", " }}</h1>
+        <h1>{{  mylist|first }}</h1>
+        <h1>{{  mylist|last }}</h1>
+        <h1>{{  mylist|random }}</h1>
+        <h1>{{  mylist|slice:"1:" }}</h1>
+        <h1>{{  mylist|slice:"1:3" }}</h1>
+        <h1>{{  mylist|slice:":3" }}</h1>
+        <h1>{{  mylist|slice:"::2" }}</h1>
+        <h1>{{  mylist|slice:"-3:" }}</h1>
+
+        <hr/>
+
+        <p>{{ is_resilient }}</p>
+        <p>{{ is_resilient|yesno:"Yes,No,Maybe" }}</p>
+        <p>{{ is_confident|yesno:"Yes,No" }}</p>
+        <p>{{ is_humble|yesno:"Yes,No" }}</p>
+        <p>{{ is_humble|yesno:"Absolutely,Not at all" }}</p>
+        <p>{{ is_humble|yesno:"Absolutely,Not at all,Maybe" }}</p>
+        
+        <hr/>
+
+        <h6>{{ projects }}</h6>
+        <h6>{{ projects | dictsort:'name' }}</h6>
+
+        {% if user.is_authenticated %}
+
+            <p>Welcome, {{ user.username }}. You are logged in.</p>
+
+        {% else %}
+
+            <p>You are not logged in.</p>
+            
+        {% endif %}
+
+
+        <h4>Looping</h4>
+
+        <ul>
+            {% for item in products %}
+
+                <li>{{ item.name }} - ${{ item.price }}</li>
+
+            {% endfor %}
+        </ul>
+         
+
+        <h1>Condition Example</h1>
+
+        {% if lucky_number == 13 %}
+
+            <p>Your lucky number is 13!</p>
+
+        {% elif pi_value > 3 %}
+
+            <p>Pi is greater than 3!</p>
+
+        {% elif e_value < 3 %}
+
+            <p>e is less than 3!</p>
+
+        {% else %}
+
+            <p>The golden ratio is {{ golden_ratio }}</p>
+
+        {% endif %}
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>Hello, Django!</h1>
+
+       
+
+        {% comment %}
+            This is a comment.
+            It will not be rendered.
+        {% endcomment %}
+
+        {% verbatim  %}
+            This is a verbatim block.   
+            It will be rendered as is.
+            {{ This will not be processed. }}
+        {% endverbatim  %}
+
+        {% autoescape off %}
+            <p>This content is not escaped: {{ content }}</p>
+            <p>This content is escaped: {{ content|safe }}</p>
+            <b>script>alert("XSS Attack!");</script></b>
+            <h1>Hello World</h1>
+        {% endautoescape %}
+
+        <ul>
+            {% for item in projects %}
+                <li style="color: {% cycle 'red' 'green' 'blue' %}">{{ item.name }} - ${{ item.price }}</li>
+            {% endfor %}
+        </ul>
+
+        <H1>CSRF Token Example</H1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Enter your name">
+            <button type="submit">Submit</button>
+        </form>
+
+        <h1>Debug </h1>
+       
+        {% if debug %}
+            <p>Debug mode is enabled.</p>
+        {% else %}
+            <p>Debug mode is disabled.</p>
+        {% endif %}
+        
+        <script src="" async defer></script>
+    </body>
+</html>
