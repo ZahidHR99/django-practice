@@ -158,9 +158,13 @@ def contact(request):
             'lucky_number': 13,
             'pi_value': 3.14159,
             'e_value': 2.71828,
-            'golden_ratio': 1.61803
-
+            'golden_ratio': 1.61803,
         },
+         'products': [
+                {'name': 'Product X', 'price': 29.99},
+                {'name': 'Product Y', 'price': 49.99},
+                {'name': 'Product Z', 'price': 19.99}
+            ],
         'content': 'Welcome to the Contact Page',
     }
 
