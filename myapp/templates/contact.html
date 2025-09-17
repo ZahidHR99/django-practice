@@ -34,11 +34,34 @@
             {% for item in products %}
 
                 <li>{{ item.name }} - ${{ item.price }}</li>
-                
+
             {% endfor %}
         </ul>
          
 
+        <h1>Condition Example</h1>
+
+        {% if lucky_number == 13 %}
+
+            <p>Your lucky number is 13!</p>
+
+        {% elif pi_value > 3 %}
+
+            <p>Pi is greater than 3!</p>
+
+        {% elif e_value < 3 %}
+
+            <p>e is less than 3!</p>
+
+        {% else %}
+
+            <p>The golden ratio is {{ golden_ratio }}</p>
+
+        {% endif %}
+
+
+    
+    
         
         <script src="" async defer></script>
     </body>
