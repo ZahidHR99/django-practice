@@ -116,7 +116,55 @@ def about(request):
     return render(request, 'about.html', data)
 
 def contact(request):
-    return HttpResponse("This is the Contact Page")
+    data = {
+        'title': 'Contact Us',
+        'user': {
+            'is_authenticated': True,
+            'is_anonymous': True,
+            'id': 1,
+            'username': 'admin',
+            'is_active': True,
+            'is_staff': False,
+            'is_superuser': True,
+            'date_joined': '2023-01-01',
+            'last_login': '2023-06-01',
+            'first_name': 'John',
+            'last_name': 'Doe',
+            'full_name': 'John Doe',
+            'name': 'Jane Smith',
+            'email': 'admin@gmail.com',
+            'phone': '555-555-5555',
+            'address': '456 Another St, Sometown, USA',
+            'age': 32,
+            'occupation': 'Manager',
+            'company': 'Business Inc.',
+            'website': 'https://www.janesmith.com',
+            'social_links': {
+                'twitter': 'https://twitter.com/janesmith',
+                'linkedin': 'https://linkedin.com/in/janesmith'
+            },
+            'skills': ['Python', 'Django', 'JavaScript'],
+            'hobbies': ['Photography', 'Traveling', 'Cooking'],
+            'favorite_color': 'Green',
+            'favorite_food': 'Sushi',
+            'favorite_movie': 'The Matrix', 
+            'favorite_book': 'To Kill a Mockingbird',
+            'favorite_music': 'Jazz',
+            'favorite_sport': 'Tennis',
+            'favorite_place': 'Mountains',
+            'favorite_animal': 'Lion',
+            'favorite_season': 'Summer',
+            'favorite_quote': 'The only way to do great work is to love what you do.',
+            'lucky_number': 13,
+            'pi_value': 3.14159,
+            'e_value': 2.71828,
+            'golden_ratio': 1.61803
+
+        },
+        'content': 'Welcome to the Contact Page',
+    }
+
+    return render(request, 'contact.html', data)
 
 def products(request):
     return HttpResponse("This is the Products Page")
